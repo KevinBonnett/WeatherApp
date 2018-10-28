@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +27,8 @@ class ForecastActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<Weather>?, response: Response<Weather>?) {
                 println(response?.body()?.query?.results?.channel?.title)
-//                title = response?.body()?.query?.results?.channel?.title
+                val forecastTitleText = findViewById<TextView>(R.id.forecastTitle) as TextView
+                forecastTitleText.text = response?.body()?.query?.results?.channel?.title
 
                 var forecasts = response?.body()?.query?.results?.channel?.item?.forecast
 
