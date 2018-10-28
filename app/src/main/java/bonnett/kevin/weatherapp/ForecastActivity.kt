@@ -26,7 +26,7 @@ class ForecastActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<Weather>?, response: Response<Weather>?) {
                 println(response?.body()?.query?.results?.channel?.title)
-                title = response?.body()?.query?.results?.channel?.title
+//                title = response?.body()?.query?.results?.channel?.title
 
                 var forecasts = response?.body()?.query?.results?.channel?.item?.forecast
 
